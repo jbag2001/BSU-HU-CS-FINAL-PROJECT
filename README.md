@@ -16,10 +16,11 @@ Export the environment variables in your shell prior to running.
 ````
 export MYSQL_DATABASE=yourDatabaseName
 export MYSQL_HOST=localhost
+export MYSQL_PORT=8033
 export MYSQL_USERNAME=msandbox
 export MYSQL_PASSWORD=yourPassword
 ````
 
 
 ## Run test
-``java MySqlDatabase``
+``java CheckDatabaseDriverSetup``
