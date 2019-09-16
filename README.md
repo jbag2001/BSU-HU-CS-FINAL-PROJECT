@@ -7,20 +7,25 @@ This repo contains code that can be used to test your JDBC setup.
 ``make``
 
 ## Setup
-Add the following to your CLASSPATH on onyx. 
-````
-export CLASSPATH=/opt/mysql/mysql-connector-java-5.1.45/mysql-connector-java-5.1.45-bin.jar:$CLASSPATH
-````
+ ``
+make setup
+``
+Add the JAR to your classpath
 
 Export the environment variables in your shell prior to running.
-````
+``
 export MYSQL_DATABASE=yourDatabaseName
 export MYSQL_HOST=localhost
 export MYSQL_PORT=8033
 export MYSQL_USERNAME=msandbox
 export MYSQL_PASSWORD=yourPassword
-````
+``
 
+NOTE: you can put these in your bashrc file ``~/.bashrc``
 
 ## Run test
 ``java CheckDatabaseDriverSetup``
+
+or
+
+``make run``
