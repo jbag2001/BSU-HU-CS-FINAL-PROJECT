@@ -21,7 +21,7 @@ run: classes .run
 setup: .setup
 .setup:
 	@mkdir -p ~/opt
-	@wget https://downloads.mysql.com/archives/get/file/mysql-connector-java-5.1.47.tar.gz -O ~/opt/mysql-connector-java-5.1.47.tar.gz
+	@wget https://downloads.mysql.com/archives/get/p/3/file/mysql-connector-java-5.1.47.tar.gz -O ~/opt/mysql-connector-java-5.1.47.tar.gz
 	@cd ~/opt && tar -xf mysql-connector-java-5.1.47.tar.gz
 	@echo "\n\n\n"
 	@echo "-------------------------------------------------------------"
