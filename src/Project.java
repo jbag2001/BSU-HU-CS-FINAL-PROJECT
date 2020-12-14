@@ -9,7 +9,7 @@ public class Project {
 		Connection connection = MySqlDatabase.getDatabaseConnection();
 		Statement sqlStatement = connection.createStatement();
 
-		String sql = String.format("insert into Items values ('%s', '%s', %s, %s);",
+		String sql = String.format("insert into items values ('%s', '%s', %s, %s);",
 				item.code,
 				item.description,
 				item.price,
@@ -24,7 +24,7 @@ public class Project {
 		Connection connection = MySqlDatabase.getDatabaseConnection();
 		Statement sqlStatement = connection.createStatement();
 
-		String sql = String.format("update Items set Items.iventory = %s WHERE Item.ItemCode = '%s';", inventory, code);
+		String sql = String.format("update items set items.iventory = %s wher item.item_code = '%s';", inventory, code);
 		sqlStatement.executeUpdate(sql);
 
 		connection.close();
@@ -34,7 +34,7 @@ public class Project {
 		Connection connection = MySqlDatabase.getDatabaseConnection();
 		Statement sqlStatement = connection.createStatement();
 
-		String sql = String.format("delete from Items where item_code = '%s';", code);
+		String sql = String.format("delete from items where item_code = '%s';", code);
 		sqlStatement.executeUpdate(sql);
 		
 		connection.close();
@@ -44,7 +44,7 @@ public class Project {
 		Connection connection = MySqlDatabase.getDatabaseConnection();
 		Statement sqlStatement = connection.createStatement();
 
-		String sql = "select * from Items";
+		String sql = "select * from items";
 		ResultSet resultSet = sqlStatement.executeQuery(sql);
 
 		List<Item> items = new ArrayList<Item>();
@@ -63,7 +63,7 @@ public class Project {
 		Connection connection = MySqlDatabase.getDatabaseConnection();
 		Statement sqlStatement = connection.createStatement();
 
-		String sql = String.format("select * from Items where item_code = '%s';", code);
+		String sql = String.format("select * from items where item_code = '%s';", code);
 		ResultSet resultSet = sqlStatement.executeQuery(sql);
 
 		List<Item> items = new ArrayList<Item>();
@@ -84,7 +84,7 @@ public class Project {
 		Connection connection = MySqlDatabase.getDatabaseConnection();
 		Statement sqlStatement = connection.createStatement();
 
-		String sql = String.format("insert into Orders (item_code, quantity) values ('%s', %s);",
+		String sql = String.format("insert into orders (item_code, quantity) values ('%s', %s);",
 				order.code, 
 				order.quantity);
 		sqlStatement.executeUpdate(sql);
@@ -97,11 +97,11 @@ public class Project {
 		Connection connection = MySqlDatabase.getDatabaseConnection();
 		Statement sqlStatement = connection.createStatement();
 
-		String sql = String.format("select order_id from orders where item_code = ((select Items.item_id from Items where item_code = '%s'));", code);
+		String sql = String.format("select order_id from orders where item_code = ((select items.item_id from items where items.item_code = '%s'));", code);
 		ResultSet resultSet = sqlStatement.executeQuery(sql);
 
 		while (resultSet.next()) {
-			sql = String.format("delete from Orders where order_id = %s;", resultSet.getString(1));
+			sql = String.format("delete from orders where order_id = %s;", resultSet.getString(1));
 			sqlStatement.executeUpdate(sql);
 		}
 		
