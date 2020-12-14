@@ -9,7 +9,7 @@ public class Project {
 		Connection connection = MySqlDatabase.getDatabaseConnection();
 		Statement sqlStatement = connection.createStatement();
 
-		String sql = String.format("insert into items values ('%s', '%s', %s, %s);",
+		String sql = String.format("insert into items (item_code, description, price, inventory) values ('%s', '%s', %s, %s);",
 				item.code,
 				item.description,
 				item.price,
