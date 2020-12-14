@@ -24,7 +24,7 @@ public class Project {
 		Connection connection = MySqlDatabase.getDatabaseConnection();
 		Statement sqlStatement = connection.createStatement();
 
-		String sql = String.format("update items set items.iventory = %s where item.item_code = '%s';", inventory, code);
+		String sql = String.format("update items set items.iventory = %s where items.item_code = '%s';", inventory, code);
 		sqlStatement.executeUpdate(sql);
 
 		connection.close();
