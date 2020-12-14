@@ -97,7 +97,7 @@ public class Project {
 		Connection connection = MySqlDatabase.getDatabaseConnection();
 		Statement sqlStatement = connection.createStatement();
 		
-		String sql = String.format("delete from orders where order_code = '%s';", code);
+		String sql = String.format("delete from orders where item_code = '%s';", code);
 		sqlStatement.executeUpdate(sql);
 		
 		connection.close();
@@ -168,6 +168,7 @@ public class Project {
 			System.out.println("Item deleted");
 		} catch (SQLException sqlException) {
 			System.out.println("Failed to delete item");
+			System.out.println(sqlException.getMessage());
 		}
 	}
 	
@@ -211,6 +212,7 @@ public class Project {
 			System.out.println("Order deleted");
 		} catch (SQLException sqlException) {
 			System.out.println("Failed to delete order");
+			System.out.println(sqlException.getMessage());
 		}
 	}
 
