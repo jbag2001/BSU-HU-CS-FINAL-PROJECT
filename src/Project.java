@@ -96,14 +96,9 @@ public class Project {
 	public static void DeleteOrder(String code) throws SQLException {
 		Connection connection = MySqlDatabase.getDatabaseConnection();
 		Statement sqlStatement = connection.createStatement();
-
-		String sql = String.format("select order_id from orders where item_code = ((select items.item_id from items where items.item_code = '%s'));", code);
-		ResultSet resultSet = sqlStatement.executeQuery(sql);
-
-		while (resultSet.next()) {
-			sql = String.format("delete from orders where order_id = %s;", resultSet.getString(1));
-			sqlStatement.executeUpdate(sql);
-		}
+		
+		String sql = String.format("delete from orders where order_code = '%s';", code);
+		sqlStatement.executeUpdate(sql);
 		
 		connection.close();
 	}
