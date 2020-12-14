@@ -8,6 +8,9 @@ JC = javac
 CLASSES = \
 	MySqlDatabase.java \
 	CheckDatabaseDriverSetup.java \
+	Project.java \
+	Item.java \
+	Order.java \
 
 default: classes
 
